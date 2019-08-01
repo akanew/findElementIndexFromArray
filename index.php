@@ -1,4 +1,66 @@
 <?php
-header ("Content-Type: text/html; charset=utf-8");
-echo "<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><!--[if lt IE 9]><meta http-equiv='X-UA-Compatible' content='IE=edge'><![endif]--><style>html{height:100%;font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-size:10px;-webkit-tap-highlight-color:transparent}*,:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}body{height:100%;margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}button,h3,input{font-family:inherit}h3{font-weight:500;line-height:1.1;color:inherit;margin-top:0;margin-bottom:20px;font-size:24px}.authform{width:300px;background-color:#e1e5ec;padding:25px 27px;margin: 0 auto;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px}</style><title>Добро пожаловать!</title></head><body style='text-align: center'><table style='width:100%;height:100%;border:none'><tbody><tr><td style='padding: 20px'><div class='authform'><h3>Добро пожаловать!</h3><div style='margin-bottom: 18px'>Open Server Panel работает ;-)</div><a href='https://ospanel.io/docs/' id='link' style='color: #4D5662'>Руководство пользователя</a></td></tr></tbody></table></body></html>";
+	header ("Content-Type: text/html; charset=utf-8");
+	
+	
+	$arr = array();
+	$arrLength = 10;
+	$arr = randArrGenerate($arrLength);
+	
+	function randArrGenerate($arrLength){ // Создание массива случайных чисел
+		$arr = array();
+		
+		for($i=0; $i<$arrLength; $i++)
+			$arr[$i] = rand();
+		
+		return $arr;
+	}
+	
+	var_dump($arr);
+	
+	/*
+		function find_element_index(arr, value){
+
+	var find_element = value;
+	var find_index = arr.length;
+	var half_index = arr.length;
+	var offset = 0;
+
+	// Вывод ошибок неудачного ввода даных пользователем
+	if(typeof(value) === "undefined"){
+			console.log("Value is undefined");
+			return -1;
+		}
+		else if(find_index > arr.length){
+			console.log("Find element out of array range");
+			return -1;
+			}
+			else if(arr[find_index] > find_element){
+					console.log("Find element value out of array numbers value range");
+					return -1;
+				 }
+	else 
+	
+		// Поиск индекса указанного в find_element значения
+		while((arr[find_index] != find_element)){
+			
+			// Делим область поиска пополам пока это возможно
+			if(half_index > 1) 
+				half_index = (half_index/2).toFixed();
+			else half_index=0;
+			
+			// Утверждаем индекс элемента сравнения
+			find_index = parseInt(offset) + parseInt(half_index);
+			
+			// Определяем смещение сравнивая значения элементов индекса поиска и искомого
+			if (arr[find_index] < find_element)         // Если искомый элемент лежит правее текущего индекса поиска
+				offset += parseInt(half_index);
+			 else if(arr[find_index] > find_element)  // Если искомый элемент лежит левее текущего индекса поиска
+				offset = offset;
+			else if (arr[find_index] == find_element)   // Если искомый элемент имеет значение эквивалентное значению с индексом поиска
+				break;                                // Закомментированные условия оставлены для понимания процесса работы
+		}
+		
+	return find_index;
+}
+	*/
 ?>
