@@ -1,13 +1,16 @@
 <?php
 	header ("Content-Type: text/html; charset=utf-8");
-	
-	
+
+	//Подготовка к поиску элемента массива
 	$arr = array();
 	$arrLength = 10;
 	$arr = randArrGenerate($arrLength);
 	$arr = sortAscArr($arr);
+	$searchValue = $arr[8];
 	
-	echo "Found index: ".find_element_index($arr, $arr[6]);
+	$resVal = find_element_index($arr, $searchValue);
+	
+	echo "Found index: ".$resVal;
 	
 	function randArrGenerate($arrLength){ // Создание массива случайных чисел
 	
@@ -40,13 +43,13 @@
 		$find_index = count($arr);
 		$half_index = count($arr);
 		$offset = 0;
-
+		
 		// Вывод ошибок неудачного ввода даных пользователем
 		if($find_index > count($arr)){
-			echo "Find element out of array range";
+			echo "Find element out of array range </br>";
 			return -1;
-		} else if($arr[$find_index] > $find_element){
-			echo "Find element value out of array numbers value range";
+		} else if(($arr[$find_index-1] < $find_element) || ($arr[0] > $find_element)){
+			echo "Find element value out of array numbers value range </br>";
 			return -1;
 		}
 		else 
@@ -61,7 +64,7 @@
 				// Утверждаем индекс элемента сравнения
 				$find_index = $offset + $half_index;
 				
-				echo $arr[$find_index]." ? ".$find_element."</br>";
+				//echo $arr[$find_index]." ? ".$find_element."</br>";
 				// Определяем смещение сравнивая значения элементов индекса поиска и искомого
 				if ($arr[$find_index] < $find_element)    		// Если искомый элемент лежит правее текущего индекса поиска
 					$offset += $half_index;
