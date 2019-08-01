@@ -12,7 +12,8 @@
 	
 	echo "Found index: ".$resVal;
 	
-	function randArrGenerate($arrLength){ // Создание массива случайных чисел
+	// Создание массива случайных чисел
+	function randArrGenerate($arrLength){ 
 	
 		$arr = array();
 		
@@ -22,7 +23,8 @@
 		return $arr;
 	}
 	
-	function sortAscArr($arr){	//Упорядочивание массива
+	//Упорядочивание массива
+	function sortAscArr($arr){	
 		$tmp = arr[0];
 		for ($i = 0; $i < count($arr); $i++) {
 				for ($j = 0; $j < count($arr); $j++) {
@@ -37,7 +39,8 @@
 		return $arr;
 	}
 	
-		function find_element_index($arr, $value){
+	// Поиск индекса элемента массива по его значению
+	function find_element_index($arr, $value){
 
 		$find_element = $value;
 		$find_index = count($arr);
@@ -64,7 +67,6 @@
 				// Утверждаем индекс элемента сравнения
 				$find_index = $offset + $half_index;
 				
-				//echo $arr[$find_index]." ? ".$find_element."</br>";
 				// Определяем смещение сравнивая значения элементов индекса поиска и искомого
 				if ($arr[$find_index] < $find_element)    		// Если искомый элемент лежит правее текущего индекса поиска
 					$offset += $half_index;
